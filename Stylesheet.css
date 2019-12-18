@@ -1,0 +1,61 @@
+
+body {
+	overflow: hidden;
+	margin: 2px;
+	padding: 2px;
+	background: #DDDFF0;
+	width: 570px;
+}
+
+tr {
+	width: 570px;
+}
+
+.font-monospace-normal {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 11px;
+	color: #222222;
+	text-align: left;
+}
+
+.font-monospace-title {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 12px;
+	color: #222222;
+	text-align: left;
+}
+
+.marked-video {
+	background: #43CF43;
+}
+
+.marked-playlist {
+	background: #CF43CF;
+}
+
+.text-area-hidden {
+	opacity: .01;
+	height:0;
+	position:absolute;
+	z-index: -1;
+}
+
+.copy-input:disabled {
+  background: #D7D7F2;
+	color: #222222;
+	border: 1px solid;
+}
+
+.copy-button {
+  position: relative;
+	right: 5px;
+	background: #F2EEEE;
+	color: #222222;
+	border: 1px solid;
+}
+
+.copy-format-select{
+	background: #F2EEEE;
+	color: #222222;
+	border: 1px solid;
+}

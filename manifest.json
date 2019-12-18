@@ -1,0 +1,23 @@
+{
+	"manifest_version": 2,
+	"name": "ytdlhelper",
+	"version": "1.0.0",
+	"content_scripts": [
+		{
+			"matches": ["https://www.youtube.com/*"],
+			"runat": "document_end",
+			"js": ["Extensions.js",
+					"UIElements.js",
+					"Commands.js",
+					"Video.js",
+					"Playlist.js",
+					"Title.js",
+					"AppPopup.js"]
+		}
+	],
+	"browser_action": {
+		"default_title": "ytdlhelper",
+		"default_popup": "Popup.html"
+		},
+	"permissions": ["storage", "tabs"]
+}
