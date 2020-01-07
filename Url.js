@@ -5,5 +5,10 @@
 */
 
 function SetUrl(url){
-  UI.URL.Input.value = url
+  if (url === PageURL && VideoId === null && PlaylistId == null){
+    UI.URL.Input.value = "";
+  }
+  else{
+    UI.URL.Input.value = url;
+  }
 }
