@@ -1,4 +1,5 @@
 /*
+  Provides references to UI elements.
   14-12-2019
   By Simon Jones
 */
@@ -21,5 +22,8 @@ var UI = {
   },
   Title: {
     Text: document.getElementById("titleText")
+  },
+  URL:{
+    Input: document.getElementById("urlInput")
   }
 };

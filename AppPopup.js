@@ -7,6 +7,7 @@
 var VideoId = null;
 var PlaylistId = null;
 var UseStorage = true;
+var PageURL = "";
 
 function CopyToClipboard(elementId){
   const textElement = document.getElementById("textareaCopy");
@@ -23,24 +24,34 @@ function ExtractId(url, regex){
   return null;
 }
 
-function UpdateUI(){
-  SetVideoInput();
-  SetPlaylistInput();
-  SetTitleText();
-}
-
 function ExtractIds(url){
   VideoId = ExtractId(url, new RegExp("(?:v=)([a-zA-Z0-9_-]+)"));
   PlaylistId = ExtractId(url, new RegExp("(?:list=)([a-zA-Z0-9_-]+)"));
 }
 
+function UpdateUI(url){
+  SetVideoInput();
+  SetPlaylistInput();
+  SetTitleText();
+  SetUrl(url);
+}
+
 function Update(url){
   ExtractIds(url);
-  UpdateUI();
+  UpdateUI(url);
   chrome.storage.local.get(['ytld_ext_video_select'],
     function(result){SetVideoSelect(result)});
   chrome.storage.local.get(['ytld_ext_playlist_select'],
     function(result){SetPlaylistSelect(result)});
+}
+
+function Load(){
+  if (stringIsNotNullOrEmpty(UI.URL.Input.value)){
+    Update(UI.URL.Input.value);
+  }
+  else{
+    Update(PageURL);
+  }
 }
 
 function Initialise(url){
@@ -48,7 +59,10 @@ function Initialise(url){
   UI.Playlist.Select.onchange = function(){UpdatePlaylistInput();};
   UI.Video.Copy.onclick = function(){CopyToClipboard("videoInput");};
   UI.Playlist.Copy.onclick = function(){CopyToClipboard("playlistInput");};
-  Update(url);
+  UI.URL.Input.onchange = function(){Load();};
+  UI.URL.Input.onclick = function(){UI.URL.Input.select();};
+  PageURL = url;
+  Load();
 }
 
 document.addEventListener('DOMContentLoaded', function() {

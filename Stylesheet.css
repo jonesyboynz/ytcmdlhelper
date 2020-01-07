@@ -46,6 +46,12 @@ tr {
 	border: 1px solid;
 }
 
+.url-input {
+  background: #E7E7F7;
+	color: #222222;
+	border: 1px solid;
+}
+
 .copy-button {
   position: relative;
 	right: 5px;
