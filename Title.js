@@ -6,14 +6,14 @@ function SetTitleText(){
   }
   else if (VideoId !== null && PlaylistId !== null){
     UI.Title.Text.innerHTML =
-      "detected v/<mark class=\"marked-video\">{0}</mark>\tpl/<mark class=\"marked-playlist\">{1}</mark>".format(VideoId, PlaylistId);
+      "vid/<mark class=\"marked-video\">{0}</mark>\tpl/<mark class=\"marked-playlist\">{1}</mark>".format(VideoId, PlaylistId);
   }
   else if (VideoId !== null){
     UI.Title.Text.innerHTML =
-      "detected v/<mark class=\"marked-video\">{0}</mark>".format(VideoId);
+      "vid/<mark class=\"marked-video\">{0}</mark>".format(VideoId);
   }
   else{
     UI.Title.Text.innerHTML =
-      "detected pl/<mark class=\"marked-playlist\">{0}</mark>".format(PlaylistId);
+      "pl/<mark class=\"marked-playlist\">{0}</mark>".format(PlaylistId);
   }
 }

@@ -4,25 +4,20 @@ body {
 	margin: 2px;
 	padding: 2px;
 	background: #DDDFF0;
-	width: 570px;
-}
-
-tr {
-	width: 570px;
 }
 
 .font-monospace-normal {
 	font-family: "Lucida Console", Monaco, monospace;
-	font-size: 11px;
+	font-size: 12px;
 	color: #222222;
 	text-align: left;
 }
 
 .font-monospace-title {
 	font-family: "Lucida Console", Monaco, monospace;
-	font-size: 12px;
-	color: #222222;
-	text-align: left;
+	font-size: 14px;
+	color: #202020;
+	text-align: center;
 }
 
 .marked-video {
