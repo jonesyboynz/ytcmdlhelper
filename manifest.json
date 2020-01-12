@@ -6,23 +6,23 @@
 		{
 			"matches": ["https://www.youtube.com/*"],
 			"runat": "document_end",
-			"js": ["Extensions.js",
-					"UIElements.js",
-					"Commands.js",
-					"Video.js",
-					"Playlist.js",
-					"Title.js",
-					"AppPopup.js"]
+			"js": ["src/popup/Extensions.js",
+					"src/popup/UIElements.js",
+					"src/popup/Commands.js",
+					"src/popup/Video.js",
+					"src/popup/Playlist.js",
+					"src/popup/Title.js",
+					"src/popup/AppPopup.js"]
 		}
 	],
 	"browser_action": {
 		"default_title": "ytdlhelper",
-		"default_popup": "Popup.html"
+		"default_popup": "src/popup/Popup.html"
 		},
 	"permissions": ["storage", "tabs"],
 	"icons": {
-		"16": "icon16.png",
-  	"32": "icon32.png",
-		"128": "icon128.png"
+		"16": "img/icon16.png",
+  	"32": "img/icon32.png",
+		"128": "img/icon128.png"
 	}
 }
