@@ -16,6 +16,18 @@ String.prototype.format = function() {
   return value;
 }
 
+//"hello {planet}".format({planet: "world"}) ===> "hello world"
+String.prototype.formatJson = function(){
+  value = this;
+  for (key in arguments[0]){
+    var toReplace = "{" + key + "}";
+    while (value.includes(toReplace)) {
+      value = value.replace(toReplace, arguments[0][key]);
+    }
+  }
+  return value;
+}
+
 //Not really an extension, but you cannot extend the prototype for null.
 function stringIsNotNullOrEmpty(string){
   return !(string === undefined || string === null || string === "")
