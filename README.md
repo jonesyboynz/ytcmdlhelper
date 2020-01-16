@@ -1,2 +1,2 @@
-# ytdlhelper
-Chrome extension that automatically generates yt-download commands
+# ytcmdhelper
+Chrome extension that automatically generates commands for youtube URLS

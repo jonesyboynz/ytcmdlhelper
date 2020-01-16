@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "ytdlhelper",
+	"name": "ytcmdhelper",
 	"version": "1.0.0",
 	"content_scripts": [
 		{
@@ -16,7 +16,7 @@
 		}
 	],
 	"browser_action": {
-		"default_title": "ytdlhelper",
+		"default_title": "ytcmdhelper",
 		"default_popup": "src/popup/Popup.html"
 		},
 	"permissions": ["storage", "tabs"],

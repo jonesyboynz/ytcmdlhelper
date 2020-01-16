@@ -1,5 +1,5 @@
 /*
-  Code for youtube-dl command generation.
+  Code for command generation.
   14-12-2019
   By Simon Jones
 */
@@ -14,7 +14,7 @@ function isAudio(format){
   }
 }
 
-function DownloadVideoCommand(videoId, format){
+function VideoCommand(videoId, format){
   if (isAudio(format)){
     return "youtube-dl -f \"bestaudio\" --extract-audio --audio-format {0} \"{1}\"".format(format, videoId);
   }
@@ -26,7 +26,7 @@ function DownloadVideoCommand(videoId, format){
   }
 }
 
-function DownloadPlaylistCommand(playlistId, format){
+function PlaylistCommand(playlistId, format){
   if (isAudio(format)){
     return "youtube-dl -i -f \"bestaudio\" --extract-audio --audio-format {0} \"{1}\"".format(format, playlistId);
   }
