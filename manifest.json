@@ -12,7 +12,9 @@
 					"src/popup/Video.js",
 					"src/popup/Playlist.js",
 					"src/popup/Title.js",
-					"src/popup/AppPopup.js"]
+					"src/popup/AppPopup.js",
+					"src/common/Command.js"
+				]
 		}
 	],
 	"browser_action": {

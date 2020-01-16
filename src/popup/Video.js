@@ -16,3 +16,13 @@ function SetVideoSelect(result){
     : "best";
   SetVideoInput();
 }
+
+function GenerateVideoSelect(commands, videoUrls){
+  for (command in commands){ //todo : sort?
+    var element = document.createElement("option");
+    element.value = command.Name;
+    element.innerText = command.Apply(videoUrls);
+    UI.Video.Select.appendChild(element);
+  }
+  //todo : set select value;
+}
