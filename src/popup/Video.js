@@ -56,6 +56,7 @@ function DefaultVideoCommands(){
       new Command("webm", "youtube-dl -f \"bestvideo[ext=webm]+bestaudio[ext=webm]\" --merge-output webm \"{videoId}\""),
       new Command("mp3", "youtube-dl -f \"bestaudio\" --extract-audio --audio-format mp3 \"{VideoId}\""),
       new Command("flac", "youtube-dl -f \"bestaudio\" --extract-audio --audio-format flac \"{VideoId}\""),
+      new Command("mpv", "mpv {VideoUrl}")
     ],
     current: "best"
   };

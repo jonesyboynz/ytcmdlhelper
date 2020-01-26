@@ -12,7 +12,7 @@
 					"src/popup/Playlist.js",
 					"src/popup/Title.js",
 					"src/popup/AppPopup.js",
-					"src/popup/PageContext.js",
+					"src/common/PageContext.js",
 					"src/common/Command.js"
 				]
 		}
