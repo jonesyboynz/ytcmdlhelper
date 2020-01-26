@@ -6,7 +6,7 @@ function UpdateVideoInput(){
 function SetVideoInput(){
   UI.Table.Video.hidden = (VideoId === null);
   if (VideoId !== null){
-    UI.Video.Input.value = DownloadVideoCommand(VideoId, UI.Video.Select.value);
+    UI.Video.Input.value = VideoCommand(VideoId, UI.Video.Select.value);
   }
 }
 

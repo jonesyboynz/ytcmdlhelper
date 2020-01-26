@@ -6,7 +6,7 @@ function UpdatePlaylistInput(){
 function SetPlaylistInput(){
   UI.Table.Playlist.hidden = (PlaylistId === null);
   if (PlaylistId !== null){
-    UI.Playlist.Input.value = DownloadPlaylistCommand(PlaylistId, UI.Playlist.Select.value);
+    UI.Playlist.Input.value = PlaylistCommand(PlaylistId, UI.Playlist.Select.value);
   }
 }
 

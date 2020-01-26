@@ -1,5 +1,5 @@
 /*
-  Main body of code for the ytdl Extension
+  Main body of code for the ytcmd Extension
   14-12-2019
   By Simon Jones
 */
