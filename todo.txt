@@ -1,0 +1,5 @@
+1) Get rid of globals in:
+  popup/Video.js
+  popup/Playlist.js
+
+2) Implement command sorting.

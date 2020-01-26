@@ -29,8 +29,14 @@ function SetContext(url){
 }
 
 function UpdateUI(url){
-  SetVideoInput();
-  //SetPlaylistInput();
+  chrome.storage.local.get(["ytld_ext_video"],
+  function(result){
+    BuildAndSetVideoSelect(result);
+  });
+  chrome.storage.local.get(["ytld_ext_playlist"],
+  function(result){
+    BuildAndSetPlaylistSelect(result);
+  });
   SetTitleText();
   SetUrl(url);
 }
@@ -38,23 +44,6 @@ function UpdateUI(url){
 function Update(url){
   SetContext(url);
   UpdateUI(url);
-
-  /*chrome.storage.local.get(['ytld_ext_video_select'],
-    function(result){SetVideoSelect(result)});
-  chrome.storage.local.get(['ytld_ext_playlist_select'],
-    function(result){SetPlaylistSelect(result)});
-    */
-  //
-  chrome.storage.local.get(["ytld_ext_video"],
-  function(result){
-    BuildAndSetVideoSelect(result);
-  });
-
-  chrome.storage.local.get(["ytld_ext_playlist"],
-  function(result){
-    //BuildAndSetPlaylistSelect(result);
-  });
-
 }
 
 function Load(){

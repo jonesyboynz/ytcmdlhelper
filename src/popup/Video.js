@@ -1,39 +1,50 @@
+/*
+  Provides methods for generating and populating the video input.
+  By Simon Jones
+  26-01-2020
+*/
+
+var VideoCommandInfo = null;
+
 function UpdateVideoInput(){
-  //SetVideoInput();
-  //chrome.storage.local.set({ytld_ext_video_select: UI.Video.Select.value}, function() {});
+  VideoCommandInfo.current = UI.Video.Select.value;
+  SetVideoInput(VideoCommandInfo);
+  SaveVideoCommandInfo(VideoCommandInfo);
 }
 
 function SetVideoInput(commandInfo){
-  UI.Table.Video.hidden = !PageContext.HasVideo;
-  if (PageContext.HasVideo){
+  UI.Table.Video.hidden = !Context.HasVideo;
+  if (Context.HasVideo){
     var command = GetCurrentCommand(commandInfo);
     UI.Video.Input.value = command.Command.formatJson(Context.ToJson());
   }
 }
 
-//Sets the video select value
 function SetVideoSelect(commandInfo){
   var command = GetCurrentCommand(commandInfo);
-
-  UI.Video.Select.value = stringIsNotNullOrEmpty(commandName)
-    ? command.Name
-    : context.commands[0].Name;
+  UI.Video.Select.value = (command == null)
+    ? commandInfo.commands[0].Name
+    : command.Name;
 }
 
-function BuildAndSetVideoSelect(commandInfo){
-  if (commandInfo == null){
-    commandInfo = DefaultVideoCommands();
+function BuildAndSetVideoSelect(result){
+  VideoCommandInfo = result["ytld_ext_video"];
+  if (VideoCommandInfo == null){
+    VideoCommandInfo = DefaultVideoCommands();
   }
-  GenerateVideoSelect(commandInfo.commands);
-  SetVideoSelect(commandInfo);
-  SetVideoInput(commandInfo);
+  GenerateVideoSelect(VideoCommandInfo.commands);
+  SetVideoSelect(VideoCommandInfo);
+  SetVideoInput(VideoCommandInfo);
 }
 
 function GenerateVideoSelect(commands){
-  for (command in commands){ //todo : sort?
+  while (UI.Video.Select.firstChild) {
+    UI.Video.Select.removeChild(UI.Video.Select.firstChild);
+  }
+  for (index in commands){ //todo : sort?
     var element = document.createElement("option");
-    element.value = command.Name;
-    element.innerText = command.Name;
+    element.value = commands[index].Name;
+    element.innerText = commands[index].Name;
     UI.Video.Select.appendChild(element);
   }
 }
@@ -48,7 +59,10 @@ function DefaultVideoCommands(){
     ],
     current: "best"
   };
-  chrome.storage.local.set({ytld_ext_video: commandInfo},
-    function(){});
+  chrome.storage.local.set({ytld_ext_video: commandInfo}, function(){});
   return commandInfo;
+}
+
+function SaveVideoCommandInfo(commandInfo){
+  chrome.storage.local.set({ytld_ext_video: commandInfo}, function(){});
 }
