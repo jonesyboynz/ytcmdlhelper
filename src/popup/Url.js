@@ -5,7 +5,7 @@
 */
 
 function SetUrl(url){
-  if (url === PageURL && VideoId === null && PlaylistId == null){
+  if (url === PageURL && !Context.HasVideo && !Context.HasPlaylist){
     UI.URL.Input.value = "";
   }
   else{

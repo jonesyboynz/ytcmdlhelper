@@ -32,3 +32,9 @@ String.prototype.formatJson = function(){
 function stringIsNotNullOrEmpty(string){
   return !(string === undefined || string === null || string === "")
 }
+
+function GetCurrentCommand(context){
+  return context.commands.find(function(command){
+    return command.Name === context.current;
+  });
+}

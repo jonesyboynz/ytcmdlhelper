@@ -4,10 +4,8 @@
   By Simon Jones
 */
 
-var VideoId = null;
-var PlaylistId = null;
-var UseStorage = true;
 var PageURL = "";
+var Context = null;
 
 function CopyToClipboard(elementId){
   const textElement = document.getElementById("textareaCopy");
@@ -24,25 +22,39 @@ function ExtractId(url, regex){
   return null;
 }
 
-function ExtractIds(url){
-  VideoId = ExtractId(url, new RegExp("(?:v=)([a-zA-Z0-9_-]+)"));
-  PlaylistId = ExtractId(url, new RegExp("(?:list=)([a-zA-Z0-9_-]+)"));
+function SetContext(url){
+  var videoId = ExtractId(url, new RegExp("(?:v=)([a-zA-Z0-9_-]+)"));
+  var playlistId = ExtractId(url, new RegExp("(?:list=)([a-zA-Z0-9_-]+)"));
+  Context = new PageContext(videoId, playlistId);
 }
 
 function UpdateUI(url){
   SetVideoInput();
-  SetPlaylistInput();
+  //SetPlaylistInput();
   SetTitleText();
   SetUrl(url);
 }
 
 function Update(url){
-  ExtractIds(url);
+  SetContext(url);
   UpdateUI(url);
-  chrome.storage.local.get(['ytld_ext_video_select'],
+
+  /*chrome.storage.local.get(['ytld_ext_video_select'],
     function(result){SetVideoSelect(result)});
   chrome.storage.local.get(['ytld_ext_playlist_select'],
     function(result){SetPlaylistSelect(result)});
+    */
+  //
+  chrome.storage.local.get(["ytld_ext_video"],
+  function(result){
+    BuildAndSetVideoSelect(result);
+  });
+
+  chrome.storage.local.get(["ytld_ext_playlist"],
+  function(result){
+    //BuildAndSetPlaylistSelect(result);
+  });
+
 }
 
 function Load(){
