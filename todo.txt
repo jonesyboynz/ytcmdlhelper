@@ -3,3 +3,5 @@
   popup/Playlist.js
 
 2) Implement command sorting.
+
+3) Figure some way around the hard-coded extension id in the css.
