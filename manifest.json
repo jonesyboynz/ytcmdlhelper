@@ -8,7 +8,6 @@
 			"runat": "document_end",
 			"js": ["src/popup/Extensions.js",
 					"src/popup/UIElements.js",
-					"src/popup/Commands.js",
 					"src/popup/Video.js",
 					"src/popup/Playlist.js",
 					"src/popup/Title.js",
