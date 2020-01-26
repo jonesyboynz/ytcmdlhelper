@@ -23,7 +23,8 @@ var UI = {
   Title: {
     Text: document.getElementById("titleText")
   },
-  URL:{
-    Input: document.getElementById("urlInput")
+  Settings:{
+    UrlInput: document.getElementById("urlInput"),
+    SettingsButton: document.getElementById("settingsButton")
   }
 };

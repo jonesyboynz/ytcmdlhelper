@@ -14,7 +14,7 @@
 					"src/popup/AppPopup.js",
 					"src/common/PageContext.js",
 					"src/common/Command.js",
-					"src/page/AppEditcommands.js"
+					"src/page/AppEditCommands.js"
 				]
 		}
 	],
@@ -29,8 +29,8 @@
 		"128": "img/icon128.png"
 	},
 	"web_accessible_resources": [
-		"images/*",
+		"img/*",
 		"src/popup/Stylesheet.css",
-		"page/EditCommands.html"
+		"src/page/EditCommands.html"
 	]
 }

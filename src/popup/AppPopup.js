@@ -47,12 +47,18 @@ function Update(url){
 }
 
 function Load(){
-  if (stringIsNotNullOrEmpty(UI.URL.Input.value)){
-    Update(UI.URL.Input.value);
+  if (stringIsNotNullOrEmpty(UI.Settings.UrlInput.value)){
+    Update(UI.Settings.UrlInput.value);
   }
   else{
     Update(PageURL);
   }
+}
+
+function ToggleSettings(){
+  chrome.tabs.query({active: true}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {message: "toggle"}, function(){});
+  });
 }
 
 function Initialise(url){
@@ -60,8 +66,9 @@ function Initialise(url){
   UI.Playlist.Select.onchange = function(){UpdatePlaylistInput();};
   UI.Video.Copy.onclick = function(){CopyToClipboard("videoInput");};
   UI.Playlist.Copy.onclick = function(){CopyToClipboard("playlistInput");};
-  UI.URL.Input.onchange = function(){Load();};
-  UI.URL.Input.onclick = function(){UI.URL.Input.select();};
+  UI.Settings.UrlInput.onchange = function(){Load();};
+  UI.Settings.UrlInput.onclick = function(){UI.URL.Input.select();};
+  UI.Settings.SettingsButton.onclick = function(){ToggleSettings();}
   PageURL = url;
   Load();
 }

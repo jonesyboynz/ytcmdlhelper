@@ -6,9 +6,9 @@
 
 function SetUrl(url){
   if (url === PageURL && !Context.HasVideo && !Context.HasPlaylist){
-    UI.URL.Input.value = "";
+    UI.Settings.UrlInput.value = "";
   }
   else{
-    UI.URL.Input.value = url;
+    UI.Settings.UrlInput.value = url;
   }
 }
