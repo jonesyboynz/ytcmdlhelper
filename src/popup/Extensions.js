@@ -6,14 +6,14 @@
 
 //"hello {0}".format("world") ===> "hello world"
 String.prototype.format = function() {
-  value = this;
-  for (index in arguments) {
-    var toReplace = "{" + index + "}";
-    while (value.includes(toReplace)) {
-      value = value.replace(toReplace, arguments[index]);
+  ptp_value = this;
+  for (ptp_index in arguments) {
+    var ptp_toReplace = "{" + ptp_index + "}";
+    while (ptp_value.includes(ptp_toReplace)) {
+      ptp_value = ptp_value.replace(ptp_toReplace, arguments[ptp_index]);
     }
   }
-  return value;
+  return ptp_value;
 }
 
 //"hello {planet}".format({planet: "world"}) ===> "hello world"

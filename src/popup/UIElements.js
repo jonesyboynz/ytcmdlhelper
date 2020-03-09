@@ -26,5 +26,17 @@ var UI = {
   Settings:{
     UrlInput: document.getElementById("urlInput"),
     SettingsButton: document.getElementById("settingsButton")
+  },
+  Mode:{
+    App: document.getElementById("appMode"),
+    Settings: document.getElementById("settingsMode")
+  },
+  SettingsButtons:{
+    Cancel: document.getElementById("settingsCancel"),
+    SaveAndExit: document.getElementById("settingsSaveAndExit")
+  },
+  Template: {
+    Command: document.getElementById("commandRowTemplate")
   }
+
 };

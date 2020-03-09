@@ -11,10 +11,12 @@
 					"src/popup/Video.js",
 					"src/popup/Playlist.js",
 					"src/popup/Title.js",
+					"src/common/IdExtractor.js",
 					"src/popup/AppPopup.js",
+					"src/popup/AppSettings.js",
+					"src/popup/App.js",
 					"src/common/PageContext.js",
-					"src/common/Command.js",
-					"src/page/AppEditCommands.js"
+					"src/common/Command.js"
 				]
 		}
 	],
@@ -30,7 +32,6 @@
 	},
 	"web_accessible_resources": [
 		"img/*",
-		"src/popup/Stylesheet.css",
-		"src/page/EditCommands.html"
+		"src/popup/Stylesheet.css"
 	]
 }
