@@ -37,6 +37,10 @@ var UI = {
   },
   Template: {
     Command: document.getElementById("commandRowTemplate")
+  },
+  CommandTables: {
+    AddVideoCommand: document.getElementById("addVideoCommand"),
+    AddPlaylistCommand: document.getElementById("addPlaylistCommand")
   }
 
 };

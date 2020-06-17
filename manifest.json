@@ -16,7 +16,8 @@
 					"src/popup/AppSettings.js",
 					"src/popup/App.js",
 					"src/common/PageContext.js",
-					"src/common/Command.js"
+					"src/common/Command.js",
+					"src/common/ValidatedResult.js"
 				]
 		}
 	],

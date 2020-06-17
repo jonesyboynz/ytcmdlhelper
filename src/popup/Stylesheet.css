@@ -65,3 +65,13 @@ body {
 	color: #222222;
 	border: 1px solid;
 }
+
+.image-box-small {
+	width: 15px;
+}
+
+img {
+		max-width: 100%;
+		max-height: 100%;
+		display: block;
+}

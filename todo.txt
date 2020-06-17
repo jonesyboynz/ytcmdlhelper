@@ -1,7 +1,5 @@
-1) Get rid of globals in:
+Get rid of globals in:
   popup/Video.js
   popup/Playlist.js
 
-2) Implement command sorting.
-
-3) Figure some way around the hard-coded extension id in the css.
+Figure some way around the hard-coded extension id in the css.

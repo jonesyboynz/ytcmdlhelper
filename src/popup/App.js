@@ -27,6 +27,10 @@ class App {
     UI.Mode.App.hidden = false;
   }
 
+  static UpdateUI(){
+    AppPopup.UpdateUI();
+  }
+
 }
 
 //Application starts here.
