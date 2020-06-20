@@ -1,0 +1,6 @@
+body: DDDFF0
+green-main: 10db50
+green-hover: 087a28
+grey-dark: 222222
+grey-dark-soft: 444444
+grey-light: 7777EE
