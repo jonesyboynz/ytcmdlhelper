@@ -11,6 +11,7 @@ class Command{
   }
 
   Apply(urls){
-    return this.Command.formatJson(urls);
+    var formatted = this.Command.formatJson(urls);
+    return formatted === this.Command ? null : formatted;
   }
 }

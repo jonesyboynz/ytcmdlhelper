@@ -5,12 +5,11 @@
 */
 
 class App {
-
   static Initialise(){
     document.addEventListener('DOMContentLoaded', function() {
       chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
          function(tabs){
-           AppPopup.Initialise(tabs[0].url);
+           AppMain.Initialise(tabs[0].url);
          }
       );
     });
@@ -28,9 +27,8 @@ class App {
   }
 
   static UpdateUI(){
-    AppPopup.UpdateUI();
+    AppMain.UpdateUI();
   }
-
 }
 
 //Application starts here.

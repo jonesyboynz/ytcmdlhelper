@@ -5,20 +5,10 @@
 */
 
 var UI = {
-  Video:{
-    Input: document.getElementById("videoInput"),
-    Select: document.getElementById("videoFormatSelect"),
-    Copy: document.getElementById("videoCopyButton")
-  },
-  Playlist:{
-    Input: document.getElementById("playlistInput"),
-    Select: document.getElementById("playlistFormatSelect"),
-    Copy: document.getElementById("playlistCopyButton")
-  },
   Table: {
-    Video: document.getElementById("videoAvailableRow"),
-    Playlist: document.getElementById("playlistAvailableRow"),
-    Title: document.getElementById("titleRow")
+    Commands: document.getElementById("commandRow"),
+    Title: document.getElementById("titleRow"),
+    CommandTable: document.getElementById("commandTable")
   },
   Title: {
     Text: document.getElementById("titleText")
@@ -36,11 +26,11 @@ var UI = {
     SaveAndExit: document.getElementById("settingsSaveAndExit")
   },
   Template: {
-    Command: document.getElementById("commandRowTemplate")
+    EditCommand: document.getElementById("commandEditTemplate"),
+    Command: document.getElementById("commandTemplate")
   },
   CommandTables: {
-    AddVideoCommand: document.getElementById("addVideoCommand"),
-    AddPlaylistCommand: document.getElementById("addPlaylistCommand")
+    AddCommand: document.getElementById("addCommand")
   }
 
 };

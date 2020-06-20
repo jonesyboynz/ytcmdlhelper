@@ -19,7 +19,7 @@ class AppSettings {
   }
 
   static CloneTemplateCommandRow(){
-    var element = UI.Template.Command.content.cloneNode(true);
+    var element = UI.Template.EditCommand.content.cloneNode(true);
     element.querySelector('img[name="commandDelete"]').onclick = function(){this.parentElement.parentElement.parentElement.remove();};
     return element;
   }
