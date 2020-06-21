@@ -15,11 +15,15 @@ class PageContext{
   }
 
   ToJson(){
-    return {
-      VideoId: this.VideoId,
-      VideoUrl: this.VideoUrl,
-      PlaylistId: this.PlaylistId,
-      PlaylistUrl: this.PlaylistUrl
-    };
+    var json = {};
+    if (this.HasVideo){
+      json["VideoId"] = this.VideoId;
+      json["VideoUrl"] = this.VideoUrl;
+    }
+    if (this.HasPlaylist){
+      json["PlaylistId"] = this.PlaylistId;
+      json["PlaylistUrl"] = this.PlaylistUrl;
+    }
+    return json;
   }
 }

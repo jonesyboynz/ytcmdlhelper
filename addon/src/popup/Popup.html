@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
   <link rel="stylesheet" type="text/css" href="chrome-extension://__MSG_@@cacfhekjdnckafjbolfjejkphiphbmjn/src/popup/Stylesheet.css"/>
@@ -14,12 +15,6 @@
           <td colspan="3">
             <p id="titleText" class="font-monospace-title">
             </p>
-          </td>
-        </tr>
-        <tr id="commandRow" hidden="true">
-          <td colspan="3">
-            <table id="commandTable">
-            </table>
           </td>
         </tr>
         <tr id="settingsRow">
@@ -66,9 +61,9 @@
     </div>
 
     <template id="commandTemplate">
-      <tr>
-        <td class="font-monospace-normal">
-          <p name="commandName">
+      <tr name="commandTemplate">
+        <td>
+          <p name="commandName" class="font-monospace-normal">
           </p>
         </td>
         <td>
@@ -83,7 +78,7 @@
     </template>
 
     <template id="commandEditRowTemplate">
-      <tr>
+      <tr name="commandEditRowTemplate">
         <td>
           <input type="text" name="commandName" value="" class="font-monospace-normal command-input">
         </td>

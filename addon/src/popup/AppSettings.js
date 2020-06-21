@@ -9,8 +9,7 @@ class AppSettings {
   static Initialise(){
     UI.SettingsButtons.Cancel.onclick = function() {App.HideSettings();};
     UI.SettingsButtons.SaveAndExit.onclick = function() {AppSettings.SaveAndExit();};
-    UI.CommandTables.AddVideoCommand.onclick = function() {AppSettings.AddNewCommand("videoCommandsTable");};
-    UI.CommandTables.AddPlaylistCommand.onclick = function() {AppSettings.AddNewCommand("playlistCommandsTable");};
+    UI.CommandTables.AddCommand.onclick = function() {AppSettings.AddNewCommand("editCommandsTable");};
     AppSettings.Load();
   }
 

@@ -12,6 +12,11 @@ class Command{
 
   Apply(urls){
     var formatted = this.Command.formatJson(urls);
-    return formatted === this.Command ? null : formatted;
+    console.log("//" + formatted + "//" + this.Command + "//");
+    return formatted == this.Command ? null : formatted;
+  }
+
+  static FromJson(json){
+    return new Command(json.Name, json.Command)
   }
 }

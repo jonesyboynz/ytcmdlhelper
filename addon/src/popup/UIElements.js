@@ -6,9 +6,8 @@
 
 var UI = {
   Table: {
-    Commands: document.getElementById("commandRow"),
     Title: document.getElementById("titleRow"),
-    CommandTable: document.getElementById("commandTable")
+    Settings: document.getElementById("settingsRow"),
   },
   Title: {
     Text: document.getElementById("titleText")

@@ -13,13 +13,16 @@ class CommandTable {
   //Updates the table
   static Update(){
     CommandTable.Clear();
-    CommandTable.BuildCommandTable()
+    chrome.storage.local.get([Constants.ChromeCommandStoreKey()],
+      function(result){
+        CommandTable.BuildCommandTable(result);
+      });
   }
 
   static Clear(){
-    const table = UI.Table.CommandTable;
-    while (table.firstChild) {
-        table.firstChild.remove();
+    var elements = document.getElementsByName("commandTemplate");
+    for (var i = elements.length; i > 0; i--){
+      elements[i - 1].parentElement.removeChild(elements[i - 1]);
     }
   }
 
@@ -32,22 +35,23 @@ class CommandTable {
     return element;
   }
 
-  static BuildCommandTable(){
+  static BuildCommandTable(result){
     CommandInfo = result[Constants.ChromeCommandStoreKey()];
     if (CommandInfo == null){
-      CommandTable.CommandInfo = DefaultVideoCommands();
+      CommandInfo = CommandTable.DefaultCommands();
     }
-    CommandTable.GenerateCommandTable(CommandTable)
+    CommandTable.GenerateCommandTable(CommandInfo)
   }
 
-  static GenerateCommandTable(commands){
-    commands.forEach(function(command){
+  static GenerateCommandTable(commandInfo){
+    commandInfo.commands.forEach(function(commandJson){
+      var command = Command.FromJson(commandJson);
       var formattedCommand = command.Apply(Context.ToJson());
       if (formattedCommand !== null){
         var commandElement = CommandTable.CloneTemplateCommandRow();
         commandElement.querySelector('p[name="commandName"]').innerText = command.Name;
         commandElement.querySelector('input[name="commandInput"]').value = formattedCommand;
-        UI.Table.CommandTable.appendChild(commandElement)
+        UI.Table.Settings.before(commandElement);
       }
     });
   }
@@ -66,7 +70,7 @@ class CommandTable {
         new Command("flac playlist", "youtube-dl -i -f \"bestaudio\" --extract-audio --audio-format flac \"{PlaylistId}\""),
       ]
     };
-    chrome.storage.local.set({ytld_commands: commandInfo}, function(){});
+    chrome.storage.local.set({ytld_commands: commandInfo}, function(){}); //todo : figure out way to use the constant here.
     return commandInfo;
   }
 

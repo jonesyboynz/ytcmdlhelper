@@ -28,6 +28,18 @@ String.prototype.formatJson = function(){
   return value;
 }
 
+//{Something: "123", SomethingElse: null} ===> {Something: "123"}
+Object.prototype.withoutNulls = function(){
+  value = this;
+  jsonWithoutNulls = {};
+  for (var key in value){
+    if (value[key] !== null){
+      jsonWithoutNulls[key] = value[key];
+    }
+  }
+  return jsonWithoutNulls;
+}
+
 //Not really an extension, but you cannot extend the prototype for null.
 function stringIsNotNullOrEmpty(string){
   return !(string === undefined || string === null || string === "")
