@@ -12,7 +12,6 @@ class Command{
 
   Apply(urls){
     var formatted = this.Command.formatJson(urls);
-    console.log("//" + formatted + "//" + this.Command + "//");
     return formatted == this.Command ? null : formatted;
   }
 

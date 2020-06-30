@@ -30,11 +30,12 @@ class EditCommandTable {
   }
 
   static BuildAndSetCommandTable(result){
+    debugger;
     var commands = result[Constants.ChromeCommandStoreKey()].commands;
-    for (var index in commands){
+    for (var i = 0; i < commands.length; i++){
       var element = EditCommandTable.CloneTemplateCommandRow();
-      element.querySelector('input[name="commandName"]').value = commands[index].Name;
-      element.querySelector('input[name="commandString"]').value = commands[index].Command;
+      element.querySelector('input[name="commandName"]').value = commands[i].Name;
+      element.querySelector('input[name="commandString"]').value = commands[i].Command;
       UI.Table.EditCommands.appendChild(element);
     }
   }

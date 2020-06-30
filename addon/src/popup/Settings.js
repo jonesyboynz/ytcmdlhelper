@@ -4,11 +4,11 @@
   7/1/2020
 */
 
-function SetUrl(url){
-  if (url === PageURL && !Context.HasVideo && !Context.HasPlaylist){
+function SetUrl(){
+  if (!Context.HasVideo && !Context.HasPlaylist){
     UI.Settings.UrlInput.value = "";
   }
   else{
-    UI.Settings.UrlInput.value = url;
+    UI.Settings.UrlInput.value = Context.Url;
   }
 }

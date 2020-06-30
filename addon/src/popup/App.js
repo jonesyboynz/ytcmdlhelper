@@ -4,13 +4,17 @@
   By Simon Jones
 */
 
+var Context = null;
+
 class App {
   static Initialise(){
     document.addEventListener('DOMContentLoaded', function() {
+      AppMain.Initialise();
+      AppSettings.Initialise();
       chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
          function(tabs){
-           AppMain.Initialise(tabs[0].url);
-           AppSettings.Initialise();
+           Context = IdExtractor.GetContext(tabs[0].url);
+           App.Update();
          }
       );
     });

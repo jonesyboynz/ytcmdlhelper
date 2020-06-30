@@ -7,13 +7,9 @@
 class AppSettings {
 
   static Update(url){
-    AppSettings.Load();
-  }
-
-  static Load(){
     chrome.storage.local.get([Constants.ChromeCommandStoreKey()],
     function(result){
-      EditCommandTable.Clear(result);
+      EditCommandTable.Clear();
       EditCommandTable.BuildAndSetCommandTable(result);
     });
   }

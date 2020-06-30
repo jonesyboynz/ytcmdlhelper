@@ -19,7 +19,7 @@ class IdExtractor {
       IdExtractor.ExtractId(url, new RegExp("(?:v=)([a-zA-Z0-9_-]+)"));
     var playlistId =
       IdExtractor.ExtractId(url, new RegExp("(?:list=)([a-zA-Z0-9_-]+)"));
-    return new PageContext(videoId, playlistId);
+    return new PageContext(url, videoId, playlistId);
   }
 
 }

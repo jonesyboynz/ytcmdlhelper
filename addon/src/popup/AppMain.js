@@ -4,33 +4,27 @@
   By Simon Jones
 */
 
-var PageURL = "";
-var Context = null;
-
 class AppMain {
 
-  static Update(url){
-    CommandTable.Update();
-    SetTitleText();
-    SetUrl(url);
-  }
-
-  static Load(){
-    if (stringIsNotNullOrEmpty(UI.Settings.UrlInput.value)){
-      Context = IdExtractor.GetContext(UI.Settings.UrlInput.value);
-      AppMain.Update(UI.Settings.UrlInput.value);
-    }
-    else{
-      Context = IdExtractor.GetContext(PageURL);
-      AppMain.Update(PageURL);
-    }
+  static Update(){
+    chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
+       function(tabs){
+         if (stringIsNotNullOrEmpty(UI.Settings.UrlInput.value)){
+           Context = IdExtractor.GetContext(UI.Settings.UrlInput.value);
+         }
+         else{
+           Context = IdExtractor.GetContext(tabs[0].url);
+         }
+         CommandTable.Update();
+         SetTitleText();
+         SetUrl();
+       }
+    );
   }
 
   static Initialise(url){
-    UI.Settings.UrlInput.onchange = function(){AppPopup.Load();};
+    UI.Settings.UrlInput.onchange = function(){AppMain.Update();};
     UI.Settings.UrlInput.onclick = function(){UI.URL.Input.select();};
     UI.Settings.SettingsButton.onclick = function(){App.ShowSettings();}
-    PageURL = url;
-    AppMain.Load(); //todo : move this into App?
   }
 }

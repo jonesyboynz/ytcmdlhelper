@@ -5,7 +5,9 @@
 */
 
 class PageContext{
-  constructor(videoId, playlistId){
+  constructor(url, videoId, playlistId){
+    this.HasUrl = (url != null);
+    this.Url = url;
     this.HasVideo = (videoId != null);
     this.VideoId = videoId;
     this.VideoUrl = "https://www.youtube.com/watch?v={0}".format(videoId);
@@ -16,6 +18,9 @@ class PageContext{
 
   ToJson(){
     var json = {};
+    if (this.HasUrl){
+      json["Url"] = this.Url;
+    }
     if (this.HasVideo){
       json["VideoId"] = this.VideoId;
       json["VideoUrl"] = this.VideoUrl;
