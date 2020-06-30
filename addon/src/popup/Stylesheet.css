@@ -5,6 +5,11 @@ body {
 	background: #DDDFF0;
 }
 
+tr {
+	border-collapse:separate;
+ 	border-spacing:1em;
+}
+
 .font-monospace-normal {
 	font-family: "Lucida Console", Monaco, monospace;
 	font-size: 12px;

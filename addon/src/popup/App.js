@@ -10,24 +10,27 @@ class App {
       chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
          function(tabs){
            AppMain.Initialise(tabs[0].url);
+           AppSettings.Initialise();
          }
       );
     });
   }
 
   static ShowSettings(){
-    AppSettings.Initialise();
     UI.Mode.Settings.hidden = false;
     UI.Mode.App.hidden = true;
+    App.Update();
   }
 
   static HideSettings(){
     UI.Mode.Settings.hidden = true;
     UI.Mode.App.hidden = false;
+    App.Update();
   }
 
-  static UpdateUI(){
-    AppMain.UpdateUI();
+  static Update(){
+    AppMain.Update();
+    AppSettings.Update();
   }
 }
 

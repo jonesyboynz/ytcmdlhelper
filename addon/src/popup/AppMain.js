@@ -8,7 +8,8 @@ var PageURL = "";
 var Context = null;
 
 class AppMain {
-  static UpdateUI(url){
+
+  static Update(url){
     CommandTable.Update();
     SetTitleText();
     SetUrl(url);
@@ -17,11 +18,11 @@ class AppMain {
   static Load(){
     if (stringIsNotNullOrEmpty(UI.Settings.UrlInput.value)){
       Context = IdExtractor.GetContext(UI.Settings.UrlInput.value);
-      AppMain.UpdateUI(UI.Settings.UrlInput.value);
+      AppMain.Update(UI.Settings.UrlInput.value);
     }
     else{
       Context = IdExtractor.GetContext(PageURL);
-      AppMain.UpdateUI(PageURL);
+      AppMain.Update(PageURL);
     }
   }
 

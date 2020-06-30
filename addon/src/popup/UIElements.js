@@ -4,23 +4,25 @@
   By Simon Jones
 */
 
-var UI = {
+var UI =
+{
   Table: {
     Title: document.getElementById("titleRow"),
     Settings: document.getElementById("settingsRow"),
+    EditCommands: document.getElementById("editCommandsTable")
   },
   Title: {
     Text: document.getElementById("titleText")
   },
-  Settings:{
+  Settings: {
     UrlInput: document.getElementById("urlInput"),
     SettingsButton: document.getElementById("settingsButton")
   },
-  Mode:{
+  Mode: {
     App: document.getElementById("appMode"),
     Settings: document.getElementById("settingsMode")
   },
-  SettingsButtons:{
+  SettingsButtons: {
     Cancel: document.getElementById("settingsCancel"),
     SaveAndExit: document.getElementById("settingsSaveAndExit")
   },
@@ -30,6 +32,8 @@ var UI = {
   },
   CommandTables: {
     AddCommand: document.getElementById("addCommand")
+  },
+  URL: {
+    Input: document.getElementById("urlInput")
   }
-
 };

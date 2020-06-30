@@ -9,6 +9,7 @@
 			"js": ["src/popup/Extensions.js",
 					"src/popup/UIElements.js",
 					"src/popup/CommandTable.js",
+					"src/popup/EditCommandTable.js",
 					"src/popup/Title.js",
 					"src/common/IdExtractor.js",
 					"src/popup/AppMain.js",
@@ -17,7 +18,8 @@
 					"src/common/PageContext.js",
 					"src/common/Command.js",
 					"src/common/ValidatedResult.js",
-					"src/common/Constants.js"
+					"src/common/Constants.js",
+					"src/common/Debug.js"
 				]
 		}
 	],
